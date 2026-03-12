@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParSave - TikTok Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-bar">
+        <div class="brand-name">PAR<span>SAVE</span> <small>TT</small></div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h2>TikTok Downloader</h2>
+            <p class="subtitle">Download video favorit tanpa watermark dengan cepat.</p>
+            
+            <div class="download-card">
+                <div class="input-area">
+                    <input type="text" id="videoUrl" placeholder="Tempel link video di sini...">
+                    <button onclick="pasteLink()" class="btn-paste">Tempel</button>
+                </div>
+                
+                <div class="ad-box-small">Iklan Akan Muncul Di Sini</div>
+
+                <button onclick="downloadVideo()" id="btnCheck" class="btn-main">Mulai Proses</button>
+            </div>
+
+            <div id="result" class="result-card" style="display: none;">
+                <img id="thumb" src="" alt="thumbnail">
+                <p id="videoTitle"></p>
+                <div class="dl-group">
+                    <a id="btnNoWM" href="#" class="dl-link">Tanpa Watermark</a>
+                    <a id="btnHD" href="#" class="dl-link outline">Kualitas HD</a>
+                    <a id="btnMP3" href="#" class="dl-link dark">Unduh MP3</a>
+                </div>
+            </div>
+
+            <div class="ad-box-large">Space for Native Ads</div>
+
+            <div class="features">
+                <div class="f-item"><h3>Tanpa Watermark</h3><p>Simpan video bersih tanpa logo.</p></div>
+                <div class="f-item"><h3>Proses Cepat</h3><p>Cukup tempel dan unduh.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
