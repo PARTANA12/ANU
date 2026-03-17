@@ -1,81 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;600;900&display=swap');
-
+/* RESET & BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body { 
+body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top right, #1a012a 0%, #0c0015 60%, #000000 100%);
+    background: radial-gradient(circle at top right, #1a012a 0%, #0c0315 60%, #000000 100%);
     color: white;
     min-height: 100vh;
 }
 
+main { /* Tag baru untuk landmark */
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* APP BAR */
 .app-bar { padding: 20px; text-align: left; }
 .brand-name { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; }
 .brand-name span { opacity: 0.6; }
-.brand-name small { font-size: 10px; background: #00bfff; padding: 2px 6px; border-radius: 4px; }
+.badge { 
+    font-size: 10px; 
+    background: #00bcd4; 
+    color: #000000 !important; /* Hitam agar kontras 100% */
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+}
 
-.main-content { display: flex; justify-content: center; padding: 10px 20px; }
-.container { width: 100%; max-width: 500px; text-align: center; }
-
-h2 { font-size: 26px; font-weight: 900; margin-top: 10px; }
+/* MAIN CONTENT */
+.main-content { padding: 10px 20px; text-align: center; }
 .subtitle { color: #aaa; font-size: 13px; margin-bottom: 30px; }
 
-/* KOTAK UTAMA*/
-.badge {
-    background: #00bcd4;
-    color: #000000 !important;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: bold;
+/* VISITOR COUNTER */
+.visitor-counter {
+    margin: 15px 0;
+    font-size: 12px;
+    color: #00bcd4;
 }
 
-
-.input-area { 
-    display: flex; background: white; border-radius: 12px; 
-    padding: 5px; margin-bottom: 15px; align-items: center;
+/* DOWNLOAD CARD */
+.download-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    padding: 20px;
+    border-radius: 20px;
 }
 
-input { 
-    flex: 1; border: none; outline: none; padding: 10px; 
-    font-size: 14px; color: #333; width: 100%;
+.input-area {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
 }
 
 .btn-paste {
     background: #ffffff;
-    color: #000000 !important;
+    color: #000000 !important; /* Hitam agar kontras 100% */
     border: none;
     padding: 0 15px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 }
 
-
-.btn-main { 
-    width: 100%; padding: 15px; border-radius: 12px; border: none;
+.btn-main {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
     background: linear-gradient(135deg, #00bfff 0%, #008cba 100%);
-    color: white; font-weight: 800; font-size: 16px; cursor: pointer;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-/* KARTU HASIL */
-.result-card { 
-    margin-top: 20px; background: rgba(255,255,255,0.08); 
-    padding: 15px; border-radius: 15px; border: 1px solid #00bfff;
+/* RESULT CARD */
+.result-card {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #00bfff;
 }
 .result-card img { width: 100px; border-radius: 10px; margin-bottom: 10px; }
-
 .dl-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-.dl-link { 
-    text-decoration: none; padding: 12px; border-radius: 10px; 
-    background: #00bfff; color: white; font-weight: 700;
+.dl-link {
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    background: #00bfff;
+    color: white;
+    font-weight: 700;
 }
 .dl-link.outline { background: transparent; border: 2px solid #00bfff; }
 .dl-link.dark { background: #111; }
 
-/* IKLAN */
-.ad-box-small { margin: 15px 0; font-size: 11px; color: #666; border: 1px dashed #444; padding: 10px; }
-.ad-box-large { margin-top: 30px; background: rgba(255,255,255,0.03); min-height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 15px; color: #444; }
-
-.features { margin-top: 40px; }
+/* FEATURES */
+.features { margin-top: 40px; text-align: left; }
 .f-item { margin-bottom: 20px; }
-.f-item h3 { color: #00e0ff; font-size: 16px; }
+.f-item h3 { color: #00bfff; font-size: 16px; }
 .f-item p { color: #777; font-size: 13px; }
+
