@@ -3,51 +3,43 @@ async function pasteLink() {
         const text = await navigator.clipboard.readText();
         document.getElementById('videoUrl').value = text;
     } catch (err) {
-        alert("Gunakan tempel manual jika izin browser tidak aktif.");
+        alert('Gagal menempel link. Izinkan akses clipboard atau tempel manual.');
     }
 }
 
 async function downloadVideo() {
     const url = document.getElementById('videoUrl').value;
-    const result = document.getElementById('result');
-    const btnCheck = document.getElementById('btnCheck');
-    const thumb = document.getElementById('thumb');
-    const videoTitle = document.getElementById('videoTitle');
+    const btn = document.getElementById('btnCheck');
+    const resultDiv = document.getElementById('result');
 
-    if (!url) return alert("Tempelkan link video dulu!");
+    if (!url) {
+        alert('Masukkan link TikTok dulu, Bro!');
+        return;
+    }
 
-    btnCheck.innerText = "Memproses...";
-    btnCheck.disabled = true;
-    
+    btn.innerText = 'Memproses...';
+    btn.disabled = true;
+
     try {
-        const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
-        const json = await res.json();
-        
-        if (json.code === 0) {
-            const data = json.data;
-            result.style.display = "block";
-            thumb.src = data.cover;
-            videoTitle.innerText = data.title || "Video TikTok";
+        // Ganti URL API ini dengan API yang Bro pakai (misal Tikwm/Awn)
+        const response = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
+        const data = await response.json();
+
+        if (data.code === 0) {
+            document.getElementById('thumb').src = data.data.cover;
+            document.getElementById('videoTitle').innerText = data.data.title;
+            document.getElementById('btnNoWM').href = data.data.play;
+            document.getElementById('btnHD').href = data.data.hdplay;
+            document.getElementById('btnMP3').href = data.data.music;
             
-            // Link tombol dibuat sederhana agar tidak berat
-            document.getElementById('btnNoWM').href = data.play;
-            document.getElementById('btnHD').href = data.hdplay || data.play;
-            document.getElementById('btnMP3').href = data.music;
-
-            // OTOMATIS DOWNLOAD TANPA BLOB (Lebih Ringan)
-            // Kita pakai trik 'window.location' agar browser langsung proses file-nya
-            setTimeout(() => {
-                window.location.href = data.hdplay || data.play;
-            }, 800);
-
-            result.scrollIntoView({ behavior: 'smooth' });
+            resultDiv.style.display = 'block';
         } else {
-            alert("Gagal mengambil video. Cek kembali link Anda.");
+            alert('Video tidak ditemukan. Pastikan link benar.');
         }
-    } catch (e) {
-        alert("Terjadi kesalahan koneksi.");
+    } catch (error) {
+        alert('Terjadi kesalahan koneksi.');
     } finally {
-        btnCheck.innerText = "Mulai Proses";
-        btnCheck.disabled = false;
+        btn.innerText = 'Mulai Proses';
+        btn.disabled = false;
     }
 }
